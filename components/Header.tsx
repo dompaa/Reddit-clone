@@ -15,6 +15,7 @@ import {
     SpeakerphoneIcon,
     VideoCameraIcon,
   } from "@heroicons/react/outline";
+import { signIn } from "next-auth/react";
 
 function Header() {
   return (
@@ -63,7 +64,7 @@ function Header() {
       </div>
 
       {/* Sign in / Sign Out button */}
-      <div className="hidden lg:flex items-center space-x-2 border-gray-100 p-2 cursor-pointer">
+      <div onClick={() => signIn()} className="hidden lg:flex items-center space-x-2 border-gray-100 p-2 cursor-pointer">
         <div className="relative h-5 w-5 flex-shrink-0">
         <Image 
         objectFit="contain"
