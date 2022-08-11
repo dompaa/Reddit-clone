@@ -11,9 +11,9 @@ export const ADD_POST = gql`
         insertPost(
             body: $body
             image: $image
-            $subreddit_id: $$subreddit_id
+            subreddit_id: $subreddit_id
             title: $title
-            $username: $$username
+            username: $username
         ) {
             body
             created_at
