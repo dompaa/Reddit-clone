@@ -21,7 +21,7 @@ function PostBox() {
   const [addPost] = useMutation(ADD_POST)
   const [addSubreddit] = useMutation(ADD_SUBREDIT)
 
-  const [imageBoxOpen, setImageBoxOpen] = useState(false);
+  const [imageBoxOpen, setImageBoxOpen] = useState<boolean>(false);
   const {
     register,
     setValue,
@@ -52,7 +52,7 @@ function PostBox() {
           // create subreddit...
           console.log('Subreddit is new! -> creating a NEW subreddit!');
           
-          const {data: { newSubreddit: newSubreddit } } = await addSubreddit({
+          const {data: { insertSubreddit: newSubreddit } } = await addSubreddit({
             variables: {
               topic: formData.subreddit
             }
