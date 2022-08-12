@@ -186,7 +186,7 @@ function PostBox() {
               )}
             </div>
           )}
-
+            {/* if user is typed in, show the post button */}
           {watch("postTitle") && (
             <button
               type="submit"
