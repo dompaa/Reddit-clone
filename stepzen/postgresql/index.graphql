@@ -94,7 +94,7 @@ type Query {
       schema: "public"
       query: 
       """
-      select * from "subreddit" where "topic" = 'nextjs'
+      select * from "subreddit" where "topic" = $1
       """
       configuration: "postgresql_config"
     )
