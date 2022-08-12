@@ -73,7 +73,7 @@ function PostBox() {
             }
           })
           
-          console.log('New post add', newPost);
+          console.log('New post added...', newPost);
         } else {
           // use existing subreddit...
           console.log('Using existing subreddit!');
