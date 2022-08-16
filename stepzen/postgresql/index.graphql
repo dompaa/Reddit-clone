@@ -57,15 +57,14 @@ type Query {
 
     getCommentByPostId(post_id: ID!): [Comment]
       @dbquery(
-        type: "postgresql"
+        type: "postgresql"  
         query: """
-        select * from "vote" where "post_id" = $1
-        order by "created_at" desc
+        select * from "comment" where "post_id" = $1
         """
         configuration: "postgresql_config"
       )
 
-    getVotesByPostId(post_id: ID): [Vote]
+    getVotesByPostId(post_id: ID!): [Vote]
       @dbquery(
         type: "postgresql"
         query: """ 
