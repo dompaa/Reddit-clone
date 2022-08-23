@@ -28,7 +28,7 @@ function PostBox({subreddit}: Props) {
   const [addPost] = useMutation(ADD_POST, {
     refetchQueries: [GET_ALL_POSTS,'getPostList'],
   })
-  const [addSubreddit] = useMutation(ADD_SUBREDDITIT)
+  const [addSubreddit] = useMutation(ADD_SUBREDDIT)
 
   const [imageBoxOpen, setImageBoxOpen] = useState<boolean>(false);
   const {
