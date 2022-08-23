@@ -198,7 +198,7 @@ function PostBox({subreddit}: Props) {
             </div>
           )}
             {/* if user is typed in, show the post button */}
-          {!!watch("postTitle") && (
+          {watch("postTitle") && (
             <button
               type="submit"
               className="w-full rounded-full bg-blue-400 p-2 text-white"
