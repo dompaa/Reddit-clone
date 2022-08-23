@@ -69,7 +69,7 @@ type Query {
         type: "postgresql"
         query: """ 
         select * from "vote" where "post_id" = $1
-        order by "created_by" desc
+        order by "created_at" desc
         """
         configuration: "postgresql_config"
       )
