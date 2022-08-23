@@ -102,7 +102,7 @@ export const GET_ALL_POSTS_BY_TOPIC = gql`
 `;
 
 export const GET_SUBREDDIT_BY_TOPIC = gql`
-    query Myquery($topic: String!) {
+    query MyQuery($topic: String!) {
         getSubredditListByTopic(topic: $topic) {
             id
             topic
