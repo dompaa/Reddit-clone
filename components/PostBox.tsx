@@ -26,7 +26,7 @@ function PostBox({subreddit}: Props) {
     
   const { data: session } = useSession();
   const [addPost] = useMutation(ADD_POST, {
-    refetchQueries: [GET_ALL_POSTS,'getPostLIst'],
+    refetchQueries: [GET_ALL_POSTS,'getPostList'],
   })
   const [addSubreddit] = useMutation(ADD_SUBREDIT)
 
