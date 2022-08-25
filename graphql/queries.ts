@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client"
 
-export const GET_POSTS_BY_POST_ID = gql`
+export const GET_POST_BY_POST_ID = gql`
     query MyQuery($post_id: ID!) {
         getPostListByPostId(post_id: $post_id) 
         {
