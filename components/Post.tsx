@@ -18,7 +18,7 @@ type Props = {
   post: Post;
 };
 
-function Post({post}: Props) {
+function Post({ post }: Props) {
 
   if(!post) return (
 
