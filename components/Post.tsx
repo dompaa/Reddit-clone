@@ -21,7 +21,6 @@ type Props = {
 function Post({ post }: Props) {
 
   if(!post) return (
-
     <div className="flex w-full items-center justify-center p-10 text-xl">
       <Jelly size={50} color="#FF4501"/>
     </div>
@@ -45,7 +44,7 @@ function Post({ post }: Props) {
         <div className="flex items-center space-x-2">
           <Avatar seed={post.subreddit[0]?.topic}/>
           <p className="text-xs text-gray-400">
-            <Link href={`/subbreddit/${post.subreddit[0]?.topic}`}>
+            <Link href={`/subreddit/${post.subreddit[0]?.topic}`}>
             <span className="font-bold text-black hover:text-blue-400 hover:underline">
               r/{post.subreddit[0]?.topic}
             </span>
