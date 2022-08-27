@@ -51,7 +51,7 @@ function PostBox({subreddit}: Props) {
           } = await client.query({
           query: GET_SUBREDDIT_BY_TOPIC,
           variables: {
-            topic: formData.subreddit
+            topic: subreddit || formData.subreddit
           }
         })
 
