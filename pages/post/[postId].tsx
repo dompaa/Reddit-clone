@@ -103,8 +103,8 @@ function PostPage() {
                     <p className='py-2 text-xs text-gray-400'>
                         <span className='font-semibold text-gray-600'>
                           {comment.username}</span>
-                        {' '}
-                      • <TimeAgo date={comment.created_at}/> 
+                          • {' '}
+                       <TimeAgo date={comment.created_at}/> 
                     </p>
                     <p>{comment.text}</p>
                 </div>
