@@ -7,8 +7,8 @@ import { GET_POST_BY_POST_ID } from '../../graphql/queries'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { ADD_COMMENT } from '../../graphql/mutations'
 import toast from 'react-hot-toast'
-import ReactTimeago from 'react-timeago'
 import Avatar from '../../components/Avatar'
+import TimeAgo from 'react-timeago'
 
 
 type FormData = {
@@ -87,13 +87,13 @@ function PostPage() {
           </form>
         </div>
 
-
         <div className='-my-5 rounded-b-md border-t-0 border-gray-300 bg-white py-5 px-10'>
           <hr className='py-2'/>
           {post?.comments.map(comment => (
             <div 
                 className='relative flex items-center space-x-2 space-y-5' 
-                key={comment.id}>
+                key={comment.id}
+            >
                 <hr className='absolute top-10 h-16 border left-7 z-0'/>
                 <div className='z-50'>
                   <Avatar seed={comment.username}/>
@@ -104,7 +104,7 @@ function PostPage() {
                         <span className='font-semibold text-gray-600'>
                           {comment.username}</span>
                           • {' '}
-                       <ReactTimeago date={comment.created_at}/> 
+                       <TimeAgo date={comment.created_at}/> 
                     </p>
                     <p>{comment.text}</p>
                 </div>
