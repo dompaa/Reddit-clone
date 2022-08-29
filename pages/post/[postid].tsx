@@ -93,8 +93,7 @@ function PostPage() {
           {post?.comments.map(comment => (
             <div 
                 className='relative flex items-center space-x-2 space-y-5' 
-                key={comment.id}
-            >
+                key={comment.id}>
                 <hr className='absolute top-10 h-16 border left-7 z-0'/>
                 <div className='z-50'>
                   <Avatar seed={comment.username}/>
