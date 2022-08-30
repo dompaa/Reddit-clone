@@ -18,6 +18,10 @@ function Feed({ topic }: Props) {
 
   const posts: Post[] = !topic ? data?.getPostList : data?.getPostListByTopic;
 
+  // console.log(posts);
+  // console.log(error);
+  
+
   return (
     <div className="mt-5 space-y-4">
       {posts?.map((post) => (
