@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -42,8 +42,46 @@ function Post({ post }: Props) {
       toast("❗ You'll need to sign in to Vote!")
       return
     }
+    
+    if (vote && isUpvote) return;
+    if (vote === false && !isUpvote) return;
 
+    console.log('voting...', isUpvote);
+
+    await addVote({
+      variables: {
+        post_id: post.id,
+        username: session?.user?.name,
+        upvote: isUpvote
+      }
+    })
+    
   }
+
+  const displayVotes = (data: any) => {
+    const votes: Vote[] = data?.getVotesByPostId
+    const displayNumber = votes?.reduce((total, vote) => (vote.upvote ? (total += 1) : (total -= 1)), 
+    0)
+
+    if (votes?.length === 0) return 0;
+
+    if (displayNumber === 0) {
+      return votes[0]?.upvote ? 1 : -1
+    }
+
+    return displayNumber;
+  }
+
+  useEffect(() => {
+    const votes: Vote[] = data?.getVotesByPostId;
+
+
+    const vote = votes?.find(vote => vote.username == session?.user?.name
+      )?.upvote
+
+      setVote(vote)
+
+  }, [data])
 
   if(!post) return (
     <div className="flex w-full items-center justify-center p-10 text-xl">
@@ -60,11 +98,11 @@ function Post({ post }: Props) {
       bg-gray-50 p-4 text-gray-400">
         <ArrowUpIcon 
         onClick={() => upVote(true)} 
-        className="voteButtons hover:text-red-400"/>
-        <p className="text-xs font-bold text-black">0</p>
+        className={`voteButtons hover:text-red-400 ${vote && 'text-red-400'}`}/>
+        <p className="text-xs font-bold text-black">{displayVotes(data)}</p>
         <ArrowDownIcon 
         onClick={() => upVote(false)} 
-        className="voteButtons hover:text-blue-400"/>
+        className={`voteButtons hover:text-blue-400 ${vote === false && 'text-blue-400'}`}/>
       </div>
 
       <div className="p-3 pb-1">
